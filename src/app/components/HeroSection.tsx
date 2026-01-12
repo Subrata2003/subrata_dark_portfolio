@@ -38,10 +38,14 @@ export function HeroSection() {
           >
             View Projects
           </button>
-          <button className="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-slate-100 rounded-lg transition-all duration-200 border border-slate-700 hover:border-slate-600 font-medium flex items-center gap-2">
+          <a 
+            href="/Subrata_Resume.pdf"
+            download="Subrata_Resume.pdf"
+            className="px-8 py-4 bg-slate-800 hover:bg-slate-700 text-slate-100 rounded-lg transition-all duration-200 border border-slate-700 hover:border-slate-600 font-medium flex items-center gap-2"
+          >
             <Download className="w-4 h-4" />
             Download Resume
-          </button>
+          </a>
         </div>
       </div>
 
