@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { Bot, Brain, Database } from 'lucide-react';
 
 const focusAreas = [
@@ -19,8 +20,37 @@ const focusAreas = [
 ];
 
 export function FocusAreas() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="py-24 px-6">
+    <section
+      ref={ref}
+      className={`py-24 px-6 transition-all duration-700 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-semibold text-slate-50 mb-4 text-center">
           What I Do
@@ -35,15 +65,18 @@ export function FocusAreas() {
             return (
               <div
                 key={index}
-                className="group relative p-8 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/5 hover:-translate-y-1"
+                className={`group relative p-8 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-2 ${
+                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
+                <div className="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 group-hover:scale-110 transition-all">
                   <Icon className="w-6 h-6 text-cyan-400" />
                 </div>
-                <h3 className="text-xl font-semibold text-slate-50 mb-3">
+                <h3 className="text-xl font-semibold text-slate-50 mb-3 group-hover:text-cyan-400 transition-colors">
                   {area.title}
                 </h3>
-                <p className="text-slate-400 leading-relaxed">
+                <p className="text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
                   {area.description}
                 </p>
               </div>

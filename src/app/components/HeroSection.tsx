@@ -6,7 +6,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center px-6 relative">
+    <section className="min-h-screen flex flex-col items-center justify-center px-6 relative pt-20">
       <div className="max-w-4xl w-full text-center">
         {/* Small accent badge */}
         <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/20 mb-8">
@@ -50,7 +50,18 @@ export function HeroSection() {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div 
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer"
+        onClick={scrollToProjects}
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            scrollToProjects();
+          }
+        }}
+      >
         <ChevronDown className="w-6 h-6 text-slate-600" />
       </div>
     </section>
