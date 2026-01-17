@@ -1,3 +1,4 @@
+import { useState, useEffect, useRef } from 'react';
 import { Briefcase, MapPin } from 'lucide-react';
 
 const experiences = [
@@ -30,8 +31,37 @@ const experiences = [
 ];
 
 export function Experience() {
+  const [isVisible, setIsVisible] = useState(false);
+  const ref = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => {
+      if (ref.current) {
+        observer.unobserve(ref.current);
+      }
+    };
+  }, []);
+
   return (
-    <section className="py-24 px-6">
+    <section
+      ref={ref}
+      className={`py-24 px-6 transition-all duration-700 ${
+        isVisible ? 'opacity-100' : 'opacity-0'
+      }`}
+    >
       <div className="max-w-5xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-semibold text-slate-50 mb-4 text-center">
           Experience
@@ -44,17 +74,20 @@ export function Experience() {
           {experiences.map((exp, index) => (
             <div
               key={index}
-              className="p-8 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/5"
+              className={`group p-8 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1 ${
+                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+              }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               {/* Header */}
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center">
+                    <div className="w-10 h-10 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center group-hover:bg-cyan-500/20 group-hover:scale-110 transition-all">
                       <Briefcase className="w-5 h-5 text-cyan-400" />
                     </div>
                     <div>
-                      <h3 className="text-xl font-semibold text-slate-50">
+                      <h3 className="text-xl font-semibold text-slate-50 group-hover:text-cyan-400 transition-colors">
                         {exp.role}
                       </h3>
                       <p className="text-cyan-400">{exp.company}</p>
@@ -62,7 +95,7 @@ export function Experience() {
                   </div>
                 </div>
                 <div className="text-slate-400 text-sm space-y-1 md:text-right">
-                  <div>{exp.period}</div>
+                  <div className="font-medium">{exp.period}</div>
                   <div className="flex items-center gap-1 md:justify-end">
                     <MapPin className="w-3 h-3" />
                     <span>{exp.location}</span>
@@ -73,7 +106,7 @@ export function Experience() {
               {/* Responsibilities */}
               <ul className="space-y-3">
                 {exp.responsibilities.map((responsibility, idx) => (
-                  <li key={idx} className="flex gap-3 text-slate-300">
+                  <li key={idx} className="flex gap-3 text-slate-300 group-hover:text-slate-200 transition-colors">
                     <span className="text-cyan-400 mt-1.5 flex-shrink-0">•</span>
                     <span className="leading-relaxed">{responsibility}</span>
                   </li>
