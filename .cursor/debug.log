@@ -1,0 +1,21 @@
+{"location":"HeroSection.tsx:4","message":"HeroSection component rendered","data":{},"timestamp":1768659391811,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:62","message":"Scroll indicator clicked","data":{},"timestamp":1768659397336,"sessionId":"debug-session","runId":"run1","hypothesisId":"H3"}
+{"location":"HeroSection.tsx:13","message":"getElementById result","data":{"found":true,"elementId":"projects","scrollHeight":8178},"timestamp":1768659397336,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:9","message":"scrollToProjects called","data":{},"timestamp":1768659397336,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:16","message":"Before scrollIntoView","data":{"elementTop":4990,"windowScrollY":220.8000030517578},"timestamp":1768659397337,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:20","message":"After scrollIntoView","data":{"windowScrollY":355.20001220703125,"elementInView":false},"timestamp":1768659397440,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:9","message":"scrollToProjects called","data":{},"timestamp":1768659410398,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:13","message":"getElementById result","data":{"found":true,"elementId":"projects","scrollHeight":8178},"timestamp":1768659410398,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:16","message":"Before scrollIntoView","data":{"elementTop":4990,"windowScrollY":0},"timestamp":1768659410399,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:20","message":"After scrollIntoView","data":{"windowScrollY":140,"elementInView":false},"timestamp":1768659410505,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:48","message":"Resume download clicked","data":{"href":"http://localhost:5173/Subrata_Resume.pdf","download":"Subrata_Resume.pdf"},"timestamp":1768659422889,"sessionId":"debug-session","runId":"run1","hypothesisId":"H2"}
+{"location":"HeroSection.tsx:4","message":"HeroSection component rendered","data":{},"timestamp":1768659459346,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:62","message":"Scroll indicator clicked","data":{},"timestamp":1768659461884,"sessionId":"debug-session","runId":"run1","hypothesisId":"H3"}
+{"location":"HeroSection.tsx:9","message":"scrollToProjects called","data":{},"timestamp":1768659461884,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:13","message":"getElementById result","data":{"found":true,"elementId":"projects","scrollHeight":6564},"timestamp":1768659461885,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:16","message":"Before scrollIntoView","data":{"elementTop":4357,"windowScrollY":355.5555419921875},"timestamp":1768659461885,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:20","message":"After scrollIntoView","data":{"windowScrollY":414.22222900390625,"elementInView":false},"timestamp":1768659461992,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:9","message":"scrollToProjects called","data":{},"timestamp":1768659466093,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:13","message":"getElementById result","data":{"found":true,"elementId":"projects","scrollHeight":6564},"timestamp":1768659466093,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:16","message":"Before scrollIntoView","data":{"elementTop":4357,"windowScrollY":136},"timestamp":1768659466094,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
+{"location":"HeroSection.tsx:20","message":"After scrollIntoView","data":{"windowScrollY":171.55555725097656,"elementInView":false},"timestamp":1768659466205,"sessionId":"debug-session","runId":"run1","hypothesisId":"H1"}
