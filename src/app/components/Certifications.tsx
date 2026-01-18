@@ -56,7 +56,7 @@ export function Certifications() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-slate-50 mb-2 group-hover:text-cyan-400 transition-colors">
-                  SnowPro Core Certification
+                  SnowPro Associate : Platform Certificatio
                 </h3>
                 <p className="text-cyan-400 mb-3 font-medium">Snowflake</p>
                 <p className="text-slate-300 leading-relaxed mb-4">
@@ -64,10 +64,12 @@ export function Certifications() {
                   data loading, modeling, security, and performance optimization.
                 </p>
                 <a
-                  href="#"
+                  href="https://achieve.snowflake.com/a5e557a8-447c-47a3-aa24-aac558a98b4f#acc.8WI6Ndw2"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 text-cyan-400 hover:text-cyan-300 transition-colors text-sm font-medium group/link"
                 >
-                  <span>View Credential</span>
+                  View Credential
                   <ExternalLink className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                 </a>
               </div>
