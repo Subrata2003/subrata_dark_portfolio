@@ -47,7 +47,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 1. **Clone the repository**
    ```bash
    git clone <your-repo-url>
-   cd Darkmodeportfoliowebsite
+   cd <repository-name>
    ```
 
 2. **Install dependencies**
@@ -71,7 +71,7 @@ A modern, responsive portfolio website built with React, TypeScript, and Tailwin
 ## 📁 Project Structure
 
 ```
-Darkmodeportfoliowebsite/
+portfolio-website/
 ├── src/
 │   ├── app/
 │   │   ├── components/
