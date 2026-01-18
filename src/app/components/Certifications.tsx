@@ -56,7 +56,7 @@ export function Certifications() {
               {/* Content */}
               <div className="flex-1">
                 <h3 className="text-xl font-semibold text-slate-50 mb-2 group-hover:text-cyan-400 transition-colors">
-                  SnowPro Associate : Platform Certificatio
+                  SnowPro Associate : Platform Certification
                 </h3>
                 <p className="text-cyan-400 mb-3 font-medium">Snowflake</p>
                 <p className="text-slate-300 leading-relaxed mb-4">

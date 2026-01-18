@@ -5,20 +5,20 @@ const contactLinks = [
   {
     icon: Mail,
     label: 'Email',
-    value: 'subrata.bhuin@example.com',
-    href: 'mailto:subrata.bhuin@example.com',
+    value: 'subratabhuin6@gmail.com',
+    href: 'mailto:subratabhuin6@gmail.com',
   },
   {
     icon: Github,
     label: 'GitHub',
-    value: 'github.com/subratabhuin',
-    href: 'https://github.com/subratabhuin',
+    value: 'github.com/Subrata2003',
+    href: 'https://github.com/Subrata2003',
   },
   {
     icon: Linkedin,
     label: 'LinkedIn',
-    value: 'linkedin.com/in/subratabhuin',
-    href: 'https://linkedin.com/in/subratabhuin',
+    value: 'linkedin.com/in/subratabhuin8918',
+    href: 'https://www.linkedin.com/in/subratabhuin8918/',
   },
 ];
 
@@ -94,7 +94,7 @@ export function Contact() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
         }`} style={{ transitionDelay: '300ms' }}>
           <a
-            href="mailto:subrata.bhuin@example.com"
+            href="mailto:subratabhuin6@gmail.com"
             className="inline-flex items-center gap-2 px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-slate-900 rounded-lg transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/20 hover:-translate-y-0.5 font-medium"
           >
             <Send className="w-4 h-4" />
