@@ -1,51 +1,28 @@
-import { useState, useEffect, useRef } from 'react';
+import { motion } from 'motion/react';
 import { Award, ExternalLink } from 'lucide-react';
 
 export function Certifications() {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
   return (
-    <section
-      ref={ref}
-      className={`py-24 px-6 bg-slate-900/30 transition-all duration-700 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
-    >
+    <section className="py-24 px-6 bg-slate-900/30">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-semibold text-slate-50 mb-4 text-center">
-          Certifications
-        </h2>
-        <p className="text-slate-400 text-center mb-16 max-w-2xl mx-auto">
-          Industry-recognized credentials
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-50 mb-4">Certifications</h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">Industry-recognized credentials</p>
+        </motion.div>
 
         <div className="max-w-2xl mx-auto">
-          <div
-            className={`group p-8 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1 ${
-              isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-            }`}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.55 }}
+            className="group p-8 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1"
           >
             <div className="flex items-start gap-6">
               {/* Icon */}
@@ -60,7 +37,7 @@ export function Certifications() {
                 </h3>
                 <p className="text-cyan-400 mb-3 font-medium">Snowflake</p>
                 <p className="text-slate-300 leading-relaxed mb-4">
-                  Validated expertise in Snowflake's cloud data platform, including architecture, 
+                  Validated expertise in Snowflake's cloud data platform, including architecture,
                   data loading, modeling, security, and performance optimization.
                 </p>
                 <a
@@ -74,7 +51,7 @@ export function Certifications() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

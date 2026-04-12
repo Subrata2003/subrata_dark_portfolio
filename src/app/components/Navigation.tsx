@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Linkedin } from 'lucide-react';
 
 const navItems = [
   { label: 'Home', href: '#home' },
@@ -55,12 +55,13 @@ export function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
+          {/* Logo — name */}
           <button
             onClick={() => scrollToSection('#home')}
-            className="text-xl font-semibold text-cyan-400 hover:text-cyan-300 transition-colors"
+            className="text-lg font-semibold tracking-tight hover:opacity-80 transition-opacity duration-200"
           >
-            SB
+            <span className="text-slate-50">Subrata</span>
+            <span className="text-cyan-400">.dev</span>
           </button>
 
           {/* Desktop Navigation */}
@@ -80,6 +81,18 @@ export function Navigation() {
             ))}
           </div>
 
+          {/* LinkedIn + Mobile Menu */}
+          <div className="flex items-center gap-2">
+            <a
+              href="https://www.linkedin.com/in/subratabhuin8918/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="LinkedIn"
+              className="p-2 rounded-lg text-slate-400 hover:text-cyan-400 hover:bg-slate-800/50 transition-all duration-200"
+            >
+              <Linkedin className="w-4 h-4" />
+            </a>
+
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -92,6 +105,7 @@ export function Navigation() {
               <Menu className="w-6 h-6" />
             )}
           </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}

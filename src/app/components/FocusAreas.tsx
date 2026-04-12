@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { motion } from 'motion/react';
 import { Bot, Brain, Database } from 'lucide-react';
 
 const focusAreas = [
@@ -19,56 +19,47 @@ const focusAreas = [
   },
 ];
 
+const container = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.12 } },
+};
+
+const cardVariant = {
+  hidden: { opacity: 0, y: 32 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.55 } },
+};
+
 export function FocusAreas() {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
   return (
-    <section
-      ref={ref}
-      className={`py-24 px-6 transition-all duration-700 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
-    >
+    <section className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-semibold text-slate-50 mb-4 text-center">
-          What I Do
-        </h2>
-        <p className="text-slate-400 text-center mb-16 max-w-2xl mx-auto">
-          Focused on delivering AI solutions that drive business value
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-50 mb-4">What I Do</h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">
+            Focused on delivering AI solutions that drive business value
+          </p>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
+          variants={container}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: '-60px' }}
+        >
           {focusAreas.map((area, index) => {
             const Icon = area.icon;
             return (
-              <div
+              <motion.div
                 key={index}
-                className={`group relative p-8 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-2 ${
-                  isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-                }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                variants={cardVariant}
+                className="group relative p-8 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-2"
               >
                 <div className="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 group-hover:scale-110 transition-all">
                   <Icon className="w-6 h-6 text-cyan-400" />
@@ -79,10 +70,10 @@ export function FocusAreas() {
                 <p className="text-slate-400 leading-relaxed group-hover:text-slate-300 transition-colors">
                   {area.description}
                 </p>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

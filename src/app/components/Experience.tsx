@@ -1,12 +1,12 @@
-import { useState, useEffect, useRef } from 'react';
+import { motion } from 'motion/react';
 import { Briefcase, MapPin } from 'lucide-react';
 
 const experiences = [
   {
     company: 'Thirdeye Data',
-    role: 'Junior AI Engineer',
-    period: 'Nov 2024 - Present',
-    location: 'Remote',
+    role: 'AI Engineer',
+    period: 'Mar 2025 - Present',
+    location: 'Kolkata, West Bengal',
     responsibilities: [
       'Architecting and deploying production-grade AI systems using Snowflake Cortex and LangChain',
       'Building agentic AI workflows for automated decision-making and intelligent process automation',
@@ -31,53 +31,31 @@ const experiences = [
 ];
 
 export function Experience() {
-  const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (ref.current) {
-      observer.observe(ref.current);
-    }
-
-    return () => {
-      if (ref.current) {
-        observer.unobserve(ref.current);
-      }
-    };
-  }, []);
-
   return (
-    <section
-      ref={ref}
-      className={`py-24 px-6 transition-all duration-700 ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
-    >
+    <section className="py-24 px-6">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-semibold text-slate-50 mb-4 text-center">
-          Experience
-        </h2>
-        <p className="text-slate-400 text-center mb-16 max-w-2xl mx-auto">
-          Real-world AI development in production environments
-        </p>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-16"
+        >
+          <h2 className="text-3xl md:text-4xl font-semibold text-slate-50 mb-4">Experience</h2>
+          <p className="text-slate-400 max-w-2xl mx-auto">
+            Real-world AI development in production environments
+          </p>
+        </motion.div>
 
         <div className="space-y-8">
           {experiences.map((exp, index) => (
-            <div
+            <motion.div
               key={index}
-              className={`group p-8 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-500 hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1 ${
-                isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-              }`}
-              style={{ transitionDelay: `${index * 150}ms` }}
+              initial={{ opacity: 0, y: 32 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-60px' }}
+              transition={{ duration: 0.55, delay: index * 0.15 }}
+              className="group p-8 rounded-xl bg-slate-800/50 border border-slate-700/50 hover:border-cyan-500/30 transition-all duration-300 hover:shadow-lg hover:shadow-cyan-500/10 hover:-translate-y-1"
             >
               {/* Header */}
               <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-6 gap-4">
@@ -112,7 +90,7 @@ export function Experience() {
                   </li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>
